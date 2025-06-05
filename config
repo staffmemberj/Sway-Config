@@ -8,8 +8,8 @@
 
 font pango:JetBrainsMono 11
 # Remove Title Bar
-default_border pixel 0
-default_floating_border pixel 0
+default_border pixel 2
+default_floating_border pixel 2
 
 # Colors
 client.focused          #665c54 #282828 #ebdbb2 #fabd2f #665c54
