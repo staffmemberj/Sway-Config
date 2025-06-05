@@ -7,7 +7,11 @@
 ### Visuals
 
 font pango:JetBrainsMono 11
+# Remove Title Bar
+default_border pixel 0
+default_floating_border pixel 0
 
+# Colors
 client.focused          #665c54 #282828 #ebdbb2 #fabd2f #665c54
 client.focused_inactive #3c3836 #282828 #a89984 #282828 #3c3836
 client.unfocused        #3c3836 #282828 #a89984 #282828 #3c3836
@@ -16,6 +20,21 @@ client.placeholder      #3c3836 #282828 #ebdbb2 #282828 #3c3836
 client.background       #282828
 gaps outer 5
 gaps inner 5
+
+###### Configurable for SwayFX users ######
+blur enable 
+blur_xray enable
+blur_passes 3
+blur_radius 5
+shadows enable
+shadow_blur_radius 10 
+corner_radius 0
+layer_effects "waybar" shadows enable; corner_radius 0; blur enable
+layer_effects "wofi" shadows enable; corner_radius 0; blur enable
+
+set $opacity 0.9
+for_window [class=".*"] opacity $opacity
+for_window [app_id=".*"] opacity $opacity
 
 ### Variables
 #
@@ -37,8 +56,7 @@ exec --no-startup-id fcitx5 -d
 exec tlp
 exec nm-applet
 exec polkitagent
-exec usr/share/libpam-kwallet-common/pam_kwallet_init
-exec_always /usr/lib/lxqt-policykit/lxqt-policykit-agent
+exec_always /usr/lib/polkit-kde-authentication-agent-1
 
 # Idle management
 exec_always swayidle -w \
@@ -52,7 +70,7 @@ exec_always swaybg
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
-output * bg $HOME/Pictures/Wallpaper/gruvb_solarsys.png fill
+output * bg $HOME/Pictures/Wallpaper/garrett-parker.jpg fill
 #
 # Example configuration:
 #
@@ -107,7 +125,7 @@ input "2:14:ETPS/2_Elantech_Touchpad" {
     bindsym $mod+t exec $term
 
     # Kill focused window
-    bindsym $mod+c kill
+    bindsym $mod+q kill
 
     # Start your launcher
     bindsym $mod+d exec $menu
